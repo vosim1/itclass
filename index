@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-color:yellow;"></body>
+<body>
+
+<center>
+    <h1>
+        <p class="solid">Chi's Shop</p></h1>
+    <hr>
+    <a href="index.html">Home</a>
+    <a href="AboutUs.html">About Us</a>
+    <a href="Resources.html">Our Ingredients</a>
+    <h2>
+        <p align="left">Latest Drinks</p></h2>
+    <dl>
+        <dt><p align="left"> Nice Touch</p></dt>
+        <dd><p align="left"> Americano coffee mixed with our Chi's Touch creamer and a design on top</p></dd>
+        <dt><p align="left"> Chi's Fav</p></dt>
+        <dd><p align="left">Iced coffee with 5 pumps of white mocha and Chi's Tip topping.</p></dd>
+    </dl>
+
+    <h3>This is a class project. <a href="http://it5443.azurewebsites.net">Click</a>
+         to see.
+    </h3>
+
+</center>
+</body>
+</html>
