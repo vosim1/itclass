@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="index.css" type="text/css" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript">
+
+function calculate() {
+
+	var grade = document.getElementById("grade");
+
+    var studentStatus = document.getElementById("status");
+
+    var message = document.getElementById("message");
+
+    var gradePoint = 0;
+
+    if (grade.value == "A") {
+
+        gradePoint = 4.0;
+
+    } else if (grade.value == "B") {
+
+        gradePoint = 3.7;
+
+    } else if (grade.value == "C") {
+
+        gradePoint = 3.6;
+
+    } else if (grade.value == "D") {
+
+        gradePoint = 3.5;
+
+    } else if (grade.value == "F") {
+
+        gradePoint = 3.0;
+
+    }
+
+    if ((gradePoint > 3.7 && studentStatus.value == "2") || (gradePoint > 3.2 && studentStatus.value == "1")) {
+
+        message.innerHTML = "<p>Congratulations!! You are qualified for this position. Please <a href='https://hr.kennesaw.edu/careers.php'>click</a> here for the next step.</p>";
+
+    } else {
+
+        message.innerHTML = "<p>We do apologize, but you are not qualified for this position.</p>";
+
+    }
+
+
+}
+function createNode(element) {
+
+    return document.createElement(element);
+
+}
+
+function getCourse(selectObject) {
+
+    debugger;
+
+    var underCourse = [{
+
+            techOG: "IT 4673 Virtual IT Systems",
+
+            coffeeOG: "MGT 4002 Managing People"
+
+        },
+
+        {
+
+            techOG: "IT 4323 Data Communications & Networks",
+
+            coffeeOG: "CSH 3390 International Initiatives in Foods"
+
+        },
+		
+		{
+			techOG: "IT 3203 Intro to Web Development",
+		
+			coffeeOG: "CSH 3300 - Professional Development"
+		
+		},
+		
+		{
+			techOG: "IT 4823 Information Security Administration",
+		
+			coffeeOG: "CSH 3100 - Food Science I"
+		
+		}
+
+    ];
+
+    var gradCourse = [{
+
+            techOG: "IT 7123:Business Intelligence Systems",
+
+            coffeeOG: "WFED 9020E Leadership Development in Workforce Education"
+
+        },
+
+        {
+
+            techOG: "IT 7303:Data Privacy Technologies",
+
+            coffeeOG: "FDNS 6640E Food Sanitation and Safety"
+
+        },
+		
+		{
+
+            techOG: "IT 7323:Computer Forensics",
+
+            coffeeOG: "FDST 7150E Food Ingredients and Function"
+
+        },
+		
+		{
+
+            techOG: "IT 7143:Cloud Analytics Technology",
+
+            coffeeOG: "FDNS 6560E Nutrition Health and Aging"
+
+        }
+
+    ];
+
+    var position = document.getElementById("position");
+
+    var studentStatus = document.getElementById("status");
+
+    var courseSelect = document.getElementById("course");
+
+    if (position.value == "1" && studentStatus.value == "1") {
+
+        courseSelect.innerHTML = "";
+
+        underCourse.forEach(function(val, ind) {
+
+            var option = createNode('option');
+
+           option.innerHTML = val.techOG;
+
+            option.value = ind + 1;
+
+            courseSelect.appendChild(option);
+
+        });
+
+    } else if (position.value == "2" && studentStatus.value == "1") {
+
+        courseSelect.innerHTML = "";
+
+        underCourse.forEach(function(val, ind) {
+
+            debugger;
+
+            var option = createNode('option');
+
+            option.innerHTML = val.coffeeOG;
+
+            option.value = ind + 1;
+
+            courseSelect.appendChild(option);
+
+        });
+
+    } else if (position.value == "1" && studentStatus.value == "2") {
+
+        courseSelect.innerHTML = "";
+
+        gradCourse.forEach(function(val, ind) {
+
+            var option = createNode('option');
+
+            option.innerHTML = val.techOG;
+
+            option.value = ind + 1;
+
+            courseSelect.appendChild(option);
+
+        });
+
+    } else if (position.value == "2" && studentStatus.value == "2") {
+
+        courseSelect.innerHTML = "";
+
+        gradCourse.forEach(function(val, ind) {
+
+            var option = createNode('option');
+
+            option.innerHTML = val.coffeeOG;
+
+            option.value = ind + 1;
+
+            courseSelect.appendChild(option);
+
+        });
+
+    }
+
+}
+</script>
+
+</head>
+
+<body>
+
+<div id="main">
+<center>
+    <h1>
+        <a href="http://ccse.kennesaw.edu/it"> <img src="logo.png" class="solid" width="175" height="200"></img></a>
+		Chi's Shop
+	</h1>
+    <h3>
+    <a href="index.html">Home | </a>
+    <a href="AboutUs.html">About Us | </a>
+    <a href="Resources.html">Our Ingredients | </a>
+	<a href="Course.html">Jobs</a>
+	</h3>
+    <h2>
+        <p align="center">Jobs</p>
+	</h2>
+
+	<p>
+	
+	We at Chi's Shop are always looking for new employees to join our team.</p><p> To join our team, 
+	we do require employees to have taken and passed a few classes.</p><p> In order to apply, please
+	fill out this short form below.
+</p>
+<br></br>
+<div id="footer">
+<center>
+
+    <div class="divRow">
+
+        <div class="cell1">
+
+            <label> Student Status: </label>
+
+        </div>
+
+        <div class="cell2">
+
+            <select id="status" onchange="getCourse()">
+
+                <option value="1">Under Graduate</option>
+
+                <option value="2">Graduate</option>
+
+            </select>
+
+        </div>
+
+<p></p>
+        <div class="cell1">
+
+            <label> Position: </label>
+
+        </div>
+
+        <div class="cell2">
+
+            <select id="position" onchange="getCourse()">
+
+                <option value="1">Tech OG</option>
+
+                <option value="2">Coffee OG</option>
+
+            </select>
+
+        </div>
+
+<p></p>
+        <div class="cell1">
+
+            <label> Course: </label>
+
+        </div>
+
+        <div class="cell2">
+
+            <select id="course">
+
+                <option value="1">IT 4673 Virtual IT Systems</option>
+
+                <option value="2">IT 4323 Data Communications & Networks</option>
+				
+				<option value="2">IT 3203 Intro to Web Development</option>
+				
+				<option value="2">IT 4823 Information Security Administration</option>
+
+            </select>
+
+        </div>
+
+<p></p>
+        <div class="cell1">
+
+            <label> Grade: </label>
+
+        </div>
+
+        <div class="cell2">
+
+            <select id="grade">
+
+                <option value="A">A</option>
+
+                <option value="B">B</option>
+
+                <option value="C">C</option>
+
+                <option value="D">D</option>
+
+                <option value="F">F</option>
+
+            </select>
+
+        </div>
+
+    </div>
+<p></p>
+    <div class="bottom">
+<p></p>
+
+        <input class="evall" id="evall" type="button" onclick="evaluate()" value="Evaluate"></input>
+
+    </div>
+
+    <div id="message" class="message">
+
+    </div>
+<br></br>
+<p></p>
+<footer><br> This is a class project. <a href="http://it5443.azurewebsites.net"> Click </a>
+        to see. </br>
+    </footer>
+	</div>
+
+</center>
+
+</body>
+
+</html>
